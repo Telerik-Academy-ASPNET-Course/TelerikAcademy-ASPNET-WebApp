@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/TelerikAcademyASPNETWebApp/.vs
+/TelerikAcademyASPNETWebApp/packages/Antlr.3.4.1.9004
+/TelerikAcademyASPNETWebApp/packages/Microsoft.ApplicationInsights.2.2.0/lib
+/TelerikAcademyASPNETWebApp/packages/Microsoft.ApplicationInsights.2.2.0
+/TelerikAcademyASPNETWebApp/TelerikAcademyASPNETWebApp/bin
+/TelerikAcademyASPNETWebApp/TelerikAcademyASPNETWebApp/obj/Debug
+/TelerikAcademyASPNETWebApp/packages
+/TelerikAcademyASPNETWebApp/TelerikAcademyASPNETWebApp.Tests/bin/Debug
+/TelerikAcademyASPNETWebApp/TelerikAcademyASPNETWebApp.Tests/obj/Debug
