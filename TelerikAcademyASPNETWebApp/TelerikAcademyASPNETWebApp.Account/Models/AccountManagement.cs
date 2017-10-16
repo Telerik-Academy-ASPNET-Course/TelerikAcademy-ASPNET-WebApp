@@ -10,6 +10,7 @@ using TelerikAcademyASPNETWebApp.Database;
 using TelerikAcademyASPNETWebApp.Database.Models;
 
 [assembly: InternalsVisibleTo("TelerikAcademyASPNETWebApp")]
+[assembly: InternalsVisibleTo("TelerikAcademyASPNETWebApp.Tests")]
 namespace TelerikAcademyASPNETWebApp.Account.Models
 {
     internal class AccountManagement : IAccountManagement
@@ -25,7 +26,10 @@ namespace TelerikAcademyASPNETWebApp.Account.Models
         {
             using (this._model)
             {
-                if (model.Password.Trim().Length > 0 && model.Password.Equals(model.ConfirmPassword))
+                if (model.Username.Length > 0 && 
+                    model.Password.Trim().Length > 0 && 
+                    model.Password.Equals(model.ConfirmPassword) &&
+                    model.UserRoles.Length > 0)
                 {
                     var user = new AcademyUsers()
                     {
@@ -54,6 +58,20 @@ namespace TelerikAcademyASPNETWebApp.Account.Models
                         .Where(m => model.Username.Equals(m.Username) && model.Password.Equals(m.Password))
                         .ToList();
                     return user.Count > 0;
+                }
+                return false;
+            }
+        }
+
+        bool IAccountManagement.UserDelete(string username)
+        {
+            using (this._model)
+            {
+                if (username.Trim().Length > 0)
+                {
+                    this._model.AcademyUsers.Remove(this._model.AcademyUsers.FirstOrDefault(m => m.Username.Equals(username)));
+                    this._model.SaveChanges();
+                    return true;
                 }
                 return false;
             }

@@ -13,5 +13,6 @@ namespace TelerikAcademyASPNETWebApp.Account.Interfaces
     {
         bool UserRegister(RegisterViewModel model);
         bool UserLogin(LoginViewModel model);
+        bool UserDelete(string username);
     }
 }

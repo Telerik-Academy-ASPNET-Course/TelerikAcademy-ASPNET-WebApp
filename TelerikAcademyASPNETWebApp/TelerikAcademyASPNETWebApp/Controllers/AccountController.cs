@@ -32,9 +32,10 @@ namespace TelerikAcademyASPNETWebApp.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
-            if (Response.Cookies["loggedUser"] != null 
-                && Response.Cookies["loggedUser"]["User"] != null 
-                && Response.Cookies["loggedUser"]["User"].Length > 0)
+            if (Response != null &&
+                Response.Cookies["loggedUser"] != null && 
+                Response.Cookies["loggedUser"]["User"] != null && 
+                Response.Cookies["loggedUser"]["User"].Length > 0)
             {
                 Response.Cookies["loggedUser"].Expires = DateTime.Now.AddDays(1d);
                 return RedirectToAction("Index", "Home");

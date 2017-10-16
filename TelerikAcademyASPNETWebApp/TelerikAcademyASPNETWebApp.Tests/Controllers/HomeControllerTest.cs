@@ -13,7 +13,7 @@ namespace TelerikAcademyASPNETWebApp.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
-        public void Index()
+        public void Index_ViewLoad()
         {
             // Arrange
             HomeController controller = new HomeController();
@@ -26,7 +26,7 @@ namespace TelerikAcademyASPNETWebApp.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
+        public void About_ViewLoad()
         {
             // Arrange
             HomeController controller = new HomeController();
@@ -39,7 +39,7 @@ namespace TelerikAcademyASPNETWebApp.Tests.Controllers
         }
 
         [TestMethod]
-        public void Contact()
+        public void Contact_ViewLoad()
         {
             // Arrange
             HomeController controller = new HomeController();
@@ -50,5 +50,18 @@ namespace TelerikAcademyASPNETWebApp.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void PageNotFound_ViewLoad()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.PageNotFound() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }        
     }
 }
