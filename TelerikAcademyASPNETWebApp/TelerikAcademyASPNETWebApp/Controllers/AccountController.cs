@@ -61,11 +61,6 @@ namespace TelerikAcademyASPNETWebApp.Controllers
                 if (loginModel.RememberMe)
                 {
                     FormsAuthentication.SetAuthCookie(loginModel.Username, loginModel.RememberMe);
-                    
-                    var authenticationManager = HttpContext.GetOwinContext().Authentication;
-                    authenticationManager.SignOut(new[] { DefaultAuthenticationTypes.ApplicationCookie, DefaultAuthenticationTypes.ExternalCookie, DefaultAuthenticationTypes.ExternalBearer });
-                    authenticationManager.SignIn(new AuthenticationProperties { IsPersistent = loginModel.RememberMe }, claimsIdentity);
-
                     if (Response.Cookies["loggedUser"] != null)
                     {
                         Response.Cookies["loggedUser"]["User"] = loginModel.Username;
@@ -128,7 +123,7 @@ namespace TelerikAcademyASPNETWebApp.Controllers
         // 
         // POST: /Account/LogOff 
         [HttpPost]
-        [Authorize]
+        [AllowAnonymous]
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
