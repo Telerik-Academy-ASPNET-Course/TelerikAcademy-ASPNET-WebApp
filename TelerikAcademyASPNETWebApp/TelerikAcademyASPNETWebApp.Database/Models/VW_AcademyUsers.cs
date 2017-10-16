@@ -1,4 +1,4 @@
-namespace TelerikAcademyASPNETWebApp.Database
+namespace TelerikAcademyASPNETWebApp.Database.Models
 {
     using System;
     using System.Collections.Generic;

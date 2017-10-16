@@ -4,6 +4,7 @@ namespace TelerikAcademyASPNETWebApp.Database
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using TelerikAcademyASPNETWebApp.Database.Models;
 
     public partial class ModelDb : DbContext
     {

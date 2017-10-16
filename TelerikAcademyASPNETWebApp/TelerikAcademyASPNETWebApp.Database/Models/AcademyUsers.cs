@@ -1,4 +1,4 @@
-namespace TelerikAcademyASPNETWebApp.Database
+namespace TelerikAcademyASPNETWebApp.Database.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,6 +17,9 @@ namespace TelerikAcademyASPNETWebApp.Database
         [Required]
         [StringLength(255)]
         public string Password { get; set; }
+        
+        [StringLength(255)]
+        public string Email { get; set; }
 
         public int UserType { get; set; }
 
